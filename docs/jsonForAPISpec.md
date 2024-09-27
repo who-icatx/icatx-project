@@ -13,6 +13,8 @@ Returned object  will look like
 ```json
 
 {
+    "whoficEntityIri": "http://id.who.int/icd/entity/257068234",
+
     "languageTerms": {
     
         "title" : {
