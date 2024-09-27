@@ -143,8 +143,47 @@ Returned object  will look like
         }
       ]
       
-    }      
+    },
     
+    "logicalDefinitions": [
+        {
+            "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1434326374",
+            "relationships": [
+                {
+                    "axis":"http://id.who.int/icd/schema/infectiousAgent",
+                    "filler":"http://id.who.int/icd/entity/1434326374"
+                },
+                {
+                    "axis":"http://id.who.int/icd/schema/associatedWith",
+                    "filler":"http://id.who.int/icd/entity/83217129"
+                }
+            ]
+        },
+        {
+            "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1435646374",
+            "relationships": [
+                {
+                    "axis":"http://id.who.int/icd/schema/hasManifestation",
+                    "filler":"http://id.who.int/icd/entity/1434323374"
+                }
+            ]
+        }
+    ],
+    
+    "necessaryConditions": [
+        {
+            "axis":"http://id.who.int/icd/schema/infectiousAgent",
+            "filler":"http://id.who.int/icd/entity/1434326322"
+        },
+        {
+            "axis":"http://id.who.int/icd/schema/specificAnatomy",
+            "filler":"http://id.who.int/icd/entity/83217134"
+        },
+        {
+            "axis":"http://id.who.int/icd/schema/temporalPatternAndOnset",
+            "filler":"http://id.who.int/icd/entity/1434323378"
+        }
+    ]
 }
 
 ```
