@@ -14,7 +14,11 @@ Returned object  will look like
 
 {
     "whoficEntityIri": "http://id.who.int/icd/entity/257068234",
-
+    
+    "parents": [
+        "http://id.who.int/icd/entity/1776745893",
+        "http://id.who.int/icd/entity/367882675"],
+    
     "languageTerms": {
     
         "title" : {
@@ -29,43 +33,48 @@ Returned object  will look like
         
         "definition" : {
             "label": "Definition 1",
-            "termId": "http://who.int/icd#TitleTerm_718"
+            "termId": "http://who.int/icd#Term_718"
         },
         
         "longDefinition" : {
             "label": "Long definition 1",
-            "termId": "http://who.int/icd#TitleTerm_718"
+            "termId": "http://who.int/icd#Term_719"
         },
         
         "baseIndexTerms": [
             {
                 "label": "Syonym 1",
                 "indexType": "Synonym",
-                "isInclusion": "true"
+                "isInclusion": "true",
+                "termId": "http://who.int/icd#Term_720"
             },
             {
                 "label": "Narrower 1",
                 "indexType": "Narrower",
-                "isInclusion": "false"
+                "isInclusion": "false",
+                "termId": "http://who.int/icd#Term_721"
             }
         ],
         
         "subclassBaseInclusions": [
             "http://id.who.int/icd/entity/1776745893",
-            "http://id.who.int/icd/entity/36782675",
+            "http://id.who.int/icd/entity/367882675",
             "http://id.who.int/icd/entity/974967764"
         ],
         
         "baseExclusionTerms": [
             {
                 "label": "Alternate exclusion label 1",
-                "foundationReference": "http://id.who.int/icd/entity/1851734799"
+                "foundationReference": "http://id.who.int/icd/entity/1851734799",
+                "termId": "http://who.int/icd#Term_720"
             },
             {
-                "label": "Alternate exclusion label 2"
+                "label": "Alternate exclusion label 2",
+                "termId": "http://who.int/icd#Term_721"
             },
             {
-                "foundationReference": "http://id.who.int/icd/entity/257068234"
+                "foundationReference": "http://id.who.int/icd/entity/257068234",
+                "termId": "http://who.int/icd#Term_722"
             }
         ],
         
