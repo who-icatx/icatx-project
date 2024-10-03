@@ -13,7 +13,7 @@ Returned object  will look like
 ```json
 
 {
-    "whoficEntityIri": "http://id.who.int/icd/entity/257068234",
+    "entityURI": "http://id.who.int/icd/entity/257068234",
     
     "parents": [
         "http://id.who.int/icd/entity/1776745893",
@@ -82,7 +82,7 @@ Returned object  will look like
      
     },
 
-    "whoficEntityLinearizations": 
+    "entityLinearizations": 
         {
             "suppressUnspecifiedResiduals": "true",
             "suppressOtherSpecifiedResiduals": "false",
@@ -95,15 +95,14 @@ Returned object  will look like
               "isAuxiliaryAxisChild": "false",
               "isGrouping": "false",
               "isIncludedInLinearization": "true",
-              "linearizationParent": "http://id.who.int/icd/entity/921595235",
-              "linearizationView": "http://id.who.int/icd/release/11/mms"
-            },
+              "linearizationPathParent": "http://id.who.int/icd/entity/921595235",
+              "linearizationId": "mms"
             {
               "isAuxiliaryAxisChild": "false",
               "isGrouping": "false",
               "isIncludedInLinearization": "unknown",
-              "linearizationParent": "http://id.who.int/icd/entity/921595235",
-              "linearizationView": "http://id.who.int/icd/release/11/der"
+              "linearizationPathParent": "http://id.who.int/icd/entity/921595235",
+              "linearizationId": "der"
             }
           ]
         },
@@ -116,20 +115,24 @@ Returned object  will look like
             "http://id.who.int/icd/schema/associatedWith",
             "http://id.who.int/icd/schema/infectiousAgent"
           ],
-          "linearizationView": "http://id.who.int/icd/release/11/mms"
+          "linearizationId": "mms"
         },
         {
           "allowedAxes": [
             "http://id.who.int/icd/schema/hasManifestation",
             "http://id.who.int/icd/schema/temporalPatternAndOnset"
           ],
-          "linearizationView": "http://id.who.int/icd/release/11/ner"
+          "notAllowedAxes": [
+             "http://id.who.int/icd/schema/specificAnatomy",
+             "http://id.who.int/icd/schema/severity"
+          ]
+          "linearizationId": "ner"
         },
         {
-          "linearizationView": "http://id.who.int/icd/release/11/research"
+          "linearizationId": "research"
         },
         {
-          "linearizationView": "http://id.who.int/icd/release/11/der"
+          "linearizationId": "der"
         }
       ],
       
