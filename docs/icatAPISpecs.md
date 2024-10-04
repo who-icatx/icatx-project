@@ -127,3 +127,18 @@ Existing formats being used in the iCatX software could be used to represent the
 
 #### Not Found 404
 If the entity with the URI does not exist response code 404 should be returned
+
+### Get children endpoint
+
+This enpoint should return a list of ordered children of an entity.
+
+` <baseUrl>/icat/entity/getChildren/<URL escaped entity URI> `
+
+This should support only GET so that the updates are only done by using the main entity endpoint.
+
+Returned JSON could be a simple array or URIs
+```
+{
+    children:["...", "..."]
+}
+```
