@@ -13,7 +13,7 @@ Returned object  will look like
 ```json
 
 {
-    "entityURI": "http://id.who.int/icd/entity/257068234",
+    "entityURI": "http://id.who.int/icd/entity/1205958647",
     
     "parents": [
         "http://id.who.int/icd/entity/1776745893",
@@ -97,6 +97,7 @@ Returned object  will look like
               "isIncludedInLinearization": "true",
               "linearizationPathParent": "http://id.who.int/icd/entity/921595235",
               "linearizationId": "mms"
+            },
             {
               "isAuxiliaryAxisChild": "false",
               "isGrouping": "false",
@@ -125,7 +126,7 @@ Returned object  will look like
           "notAllowedAxes": [
              "http://id.who.int/icd/schema/specificAnatomy",
              "http://id.who.int/icd/schema/severity"
-          ]
+          ],
           "linearizationId": "ner"
         },
         {
@@ -159,45 +160,52 @@ Returned object  will look like
       
     },
     
-    "logicalDefinitions": [
-        {
-            "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1434326374",
-            "relationships": [
-                {
-                    "axis":"http://id.who.int/icd/schema/infectiousAgent",
-                    "filler":"http://id.who.int/icd/entity/1434326374"
-                },
-                {
-                    "axis":"http://id.who.int/icd/schema/associatedWith",
-                    "filler":"http://id.who.int/icd/entity/83217129"
-                }
-            ]
-        },
-        {
-            "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1435646374",
-            "relationships": [
-                {
-                    "axis":"http://id.who.int/icd/schema/hasManifestation",
-                    "filler":"http://id.who.int/icd/entity/1434323374"
-                }
-            ]
-        }
-    ],
+    "logicalConditions": {
+            "logicalDefinitions": [
+            {
+                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1434326374",
+                "relationships": [
+                    {
+                        "axis":"http://id.who.int/icd/schema/infectiousAgent",
+                        "filler":"http://id.who.int/icd/entity/1434326374"
+                    },
+                    {
+                        "axis":"http://id.who.int/icd/schema/associatedWith",
+                        "filler":"http://id.who.int/icd/entity/83217129"
+                    }
+                ]
+            },
+            {
+                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1435646374",
+                "relationships": [
+                    {
+                        "axis":"http://id.who.int/icd/schema/hasManifestation",
+                        "filler":"http://id.who.int/icd/entity/1434323374"
+                    }
+                ]
+            }
+        ],
+        
+        "necessaryConditions": [
+            {
+                "axis":"http://id.who.int/icd/schema/infectiousAgent",
+                "filler":"http://id.who.int/icd/entity/1434326322"
+            },
+            {
+                "axis":"http://id.who.int/icd/schema/specificAnatomy",
+                "filler":"http://id.who.int/icd/entity/83217134"
+            },
+            {
+                "axis":"http://id.who.int/icd/schema/temporalPatternAndOnset",
+                "filler":"http://id.who.int/icd/entity/1434323378"
+            }
+        ]
+    },
     
-    "necessaryConditions": [
-        {
-            "axis":"http://id.who.int/icd/schema/infectiousAgent",
-            "filler":"http://id.who.int/icd/entity/1434326322"
-        },
-        {
-            "axis":"http://id.who.int/icd/schema/specificAnatomy",
-            "filler":"http://id.who.int/icd/entity/83217134"
-        },
-        {
-            "axis":"http://id.who.int/icd/schema/temporalPatternAndOnset",
-            "filler":"http://id.who.int/icd/entity/1434323378"
-        }
-    ]
+    "logicalConditionsOWL": {
+        "OWLFunctional":"EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))"
+        
+    } 
 }
 
 ```
