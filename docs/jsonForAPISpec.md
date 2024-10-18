@@ -202,10 +202,9 @@ Returned object  will look like
         ]
     },
     
-    "logicalConditionsOWL": {
-        "OWLFunctional":"EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))"
-        
-    } 
+    "logicalConditionsOwl": {
+        "owlSyntax":"OWLFunctionalSyntax",
+        "aximos":"EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)\\n\\nSubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))" 
+    }    
 }
-
 ```
