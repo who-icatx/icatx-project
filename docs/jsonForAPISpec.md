@@ -119,12 +119,16 @@ Returned object  will look like
           "linearizationId": "mms"
         },
         {
-          "allowedAxes": [
+          "overwrittenAllowedAxes": [
+            "http://id.who.int/icd/schema/specificAnatomy",
+            "http://id.who.int/icd/schema/laterality"
+          ],
+          "overwrittenRequiredAxes": [
             "http://id.who.int/icd/schema/hasManifestation",
             "http://id.who.int/icd/schema/temporalPatternAndOnset"
           ],
-          "notAllowedAxes": [
-             "http://id.who.int/icd/schema/specificAnatomy",
+          "overwrittenNotAllowedAxes": [
+             "http://id.who.int/icd/schema/causality",
              "http://id.who.int/icd/schema/severity"
           ],
           "linearizationId": "ner"
@@ -205,15 +209,22 @@ Returned object  will look like
     "logicalConditionsOwl": {
         "owlSyntax":"OWLFunctionalSyntax",
         "aximos": [ 
-			"EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))",
-			
-			"SubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)",
-			
-			"SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))"
+            "EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))",
+            "SubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)",
+            "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))"
         ]
-        
     }
     
 }
 
 ```
+
+
+**Notes about the postcoordination axes representation:**
+
+*For base/core linearizations*: we list only axes that are `allowed` or `required` (i.e., skip `notAllowed`).
+
+*For telescopic linearizations*: we list only the ones that overwrite the base linearization. These can be `allowed`, `required`, or `notAllowed`.
+
+To make this clear, may be we could use `overwrittenAllowedAxes`, `overwrittenRequiredAxes`, and `overwrittenNotAllowedAxes` in the telescopic linearization definitions not to have the confusion with the `allowedAxes`, `requiredAxes` used in the base/core linearization definitions.
+
