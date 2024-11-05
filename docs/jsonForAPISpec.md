@@ -167,11 +167,11 @@ Returned object  will look like
     "logicalConditions": {
             "logicalDefinitions": [
             {
-                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1434326374",
+                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1776745893",
                 "relationships": [
                     {
                         "axis":"http://id.who.int/icd/schema/infectiousAgent",
-                        "filler":"http://id.who.int/icd/entity/1434326374"
+                        "filler":"http://id.who.int/icd/entity/1434326373"
                     },
                     {
                         "axis":"http://id.who.int/icd/schema/associatedWith",
@@ -180,7 +180,7 @@ Returned object  will look like
                 ]
             },
             {
-                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/1435646374",
+                "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/367882675",
                 "relationships": [
                     {
                         "axis":"http://id.who.int/icd/schema/hasManifestation",
@@ -209,14 +209,17 @@ Returned object  will look like
     "logicalConditionsOwl": {
         "owlSyntax":"OWLFunctionalSyntax",
         "aximos": [ 
-            "EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))",
-            "SubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/257068234>)",
-            "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))"
+            "EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/1776745893> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/1434326373>) ObjectSomeValuesFrom(<http://id.who.int/icd/schema/associatedWith> <http://id.who.int/icd/entity/83217129>)))",
+            "EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/367882675> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/hasManifestation> <http://id.who.int/icd/entity/1434323374>)))",
+            "SubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/1776745893>)",
+            "SubClassOf(<http://id.who.int/icd/entity/1205958647> <http://id.who.int/icd/entity/367882675>)",
+            "SubClassOf(ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>))",
+            "SubClassOf(ObjectSomeValuesFrom(<http://id.who.int/icd/schema/specificAnatomy> <http://id.who.int/icd/entity/83217134>))",
+            "SubClassOf(ObjectSomeValuesFrom(<http://id.who.int/icd/schema/temporalPatternAndOnset> <http://id.who.int/icd/entity/1434323378>))"
         ]
     }
     
 }
-
 ```
 
 
