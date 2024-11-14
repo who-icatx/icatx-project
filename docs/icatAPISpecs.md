@@ -4,23 +4,15 @@ iCat API will be a REST API with Create, Read, and Update functionality over the
 
 ## API Endpoints
 
-[Reading an entity](#readingentity)
-
-[Updating an entity](#updatingentity)
-
-[Adding a new entity](#addingentity)
-
-[Deleting an entity](#deletingentity)
-
-[Entities that have been updated since a certain time](#updatedentities)
-
-[Change History for a single entity](#changehistory)
-
-[Comments for an entity](#comments)
-
-[Get children for an entity](#getchildren)
-
-[Get projects](#getprojects)
+[Reading an entity](#readingentity) <br />
+[Updating an entity](#updatingentity) <br />
+[Adding a new entity](#addingentity) <br />
+[Deleting an entity](#deletingentity) <br />
+[Entities that have been updated since a certain time](#updatedentities) <br />
+[Change History for a single entity](#changehistory) <br />
+[Comments for an entity](#comments) <br />
+[Get children for an entity](#getchildren) <br />
+[Get projects](#getprojects) <br /> <br />
 
 
 ### Reading an entity <a name="readingentity"></a>
