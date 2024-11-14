@@ -4,7 +4,11 @@ iCat API will be a REST API with Create, Read, and Update functionality over the
 
 ## API Endpoints
 
-### Reading an entity
+[Reading an entity](#readingentity)
+
+[Updating an entity](#updatingentity)
+
+### Reading an entity <a name="readingentity"></a>
 GET request to the following endpoint should return **all the information on the entity both ontological and non-ontological** as a JSON object.
 
 ` <baseUrl>/icat/entity/<URL escaped entity URI> `
@@ -29,7 +33,7 @@ ETag response header should be included in the response (it should contain a Has
 If the entity does not exist in iCat http response code 404 should be returned
 
 
-### Updating an entity
+### Updating an entity <a name="updatingentity"></a>
 PUT request to the following endpoint with the JSON payload of the updated content (same format as returned in the GET request)
 
 `<baseUrl>/icat/entity/<URL escaped entity URI>`
