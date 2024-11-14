@@ -12,19 +12,7 @@ GET request to the following endpoint should return **all the information on the
 The history of changes and comments should not be included in this information
 
 #### Returned object 
-Returned object  will look like
-
-```json
-{
-    "ontologicalInfo": {
-        
-
-    },
-    "nonOntologicalInfo": {
-        
-    }
-}
-```
+The returned object structure is defined in [this document](https://github.com/who-icatx/icatx-project/blob/main/docs/jsonForAPISpec.md).
 
 All information such as textual properties, linearization definitions, postcoordination, logical definitions, etc. for the entity should be available in this object
 
@@ -63,7 +51,7 @@ This can be because :
 
 
 ### Adding a new entity
-POST request to the following endpoint with the JSON payload of the new entity.
+POST request to the following endpoint with the JSON payload of the new entity. The POST request will contain only the title and one parent for the entity to be created. All other changes on the new entity (e.g., syns, narrower terms, linearizations, postcoordination, etc.) will be done via a PUT command, as defined above.
 
 `<baseUrl>/icat/entity`
 
@@ -140,5 +128,32 @@ Returned JSON could be a simple array or URIs
 ```
 {
     children:["...", "..."]
+}
+```
+
+### Get projects endpoint
+
+This endpoint will return a list of available projects with their metadata (id, title, description) for the requestor. The list may be constrained by access policies, i.e., a user may have read access only to certain projects.
+
+` <baseUrl>/icat/getProjects`
+
+This should support only GET.
+
+Suggestion for returned JSON:
+
+```json
+{
+    "projects": [
+        {
+            "id": "8cc2df91-d42f-441e-b586-0d502af60193",
+            "title": "WHOFIC Foundation v3.1",
+            "description": "This is the WHOFIC Foundation as of May 30, 2024 and it is used for testing."
+        },
+        {
+            "id": "61f24481-8df3-4591-8a9c-a49702a33a21",
+            "title": "ICD Parasitic + ICF Mental + ICHI Target Mental v3",
+            "description": "This is the parasitic ICD + mental ICF + mental target ICHI + label = annotation property."
+        }
+    ]
 }
 ```
