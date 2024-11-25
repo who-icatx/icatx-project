@@ -27,8 +27,6 @@ The returned object structure is defined in [this document](https://github.com/w
 
 All information such as textual properties, linearization definitions, postcoordination, logical definitions, etc. for the entity should be available in this object
 
-Further discussion is needed on deciding how to structure the ontological information and non-ontological information in the JSON object. Existing formats being used in the iCatX software could be used especially for the non-ontological information. 
-
 #### Last-Modified HTTP response header
 Last-Modified response header should be included in the response (it should contain the last time the entity is updated) in the format defined in the HTTP specification
 
