@@ -85,21 +85,25 @@ GET request to the following endpoint
 ` <baseUrl>/icat/entityChanges?changedAfter={ISOdatetimeInUTC} `
 
 This should return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
+* `updatedEntities`: list of URIs of entities that have changed after the provided time;
+* `createdEntities`: list of URIs of entities that have been created after the provided time;
+* `deletedEntities`: list of URIs of entities that have been deleted after the provided time. Normally we don't expect anything to be deleted as the deletions are performed by moves, but still there may be cases when we delete entities
+
 
 Response should look like:
 
 ```json
 {
-    updatedEntities: [
-        //list of URIs of entities that have changed after the provided time.
+    "createdEntities": [
+        "http://id.who.int/icd/entity/000000002",
+        "http://id.who.int/icd/entity/000000011"
     ],
-    createdEntities: [
-            //list of URIs of entities that have been created after the provided time.
+    "updatedEntities": [
+        "http://id.who.int/icd/entity/000000027",
+        "http://id.who.int/icd/entity/000000028"
     ],
-    deletedEntities:[
-            //list of URIs of entities that have been deleted after the provided time.
-            //normally we don't expect anything to be deleted as the deletions are performed by moves but still there may be cases when we delete entities
-
+    "deletedEntities": [
+        "http://id.who.int/icd/entity/000000013"
     ]
 }
 ```
