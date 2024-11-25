@@ -12,7 +12,8 @@ iCat API will be a REST API with Create, Read, and Update functionality over the
 [Change History for a single entity](#changehistory) <br />
 [Comments for an entity](#comments) <br />
 [Get children for an entity](#getchildren) <br />
-[Get projects](#getprojects) <br /> <br />
+[Get projects](#getprojects) <br /> 
+[Get linearization definitions](#getlindefs) <br /><br />
 
 
 ### Reading an entity <a name="readingentity"></a>
@@ -148,7 +149,7 @@ This endpoint will return a list of available projects with their metadata (id, 
 
 This should support only GET.
 
-Suggestion for returned JSON:
+Example for returned JSON:
 
 ```json
 {
@@ -165,4 +166,38 @@ Suggestion for returned JSON:
         }
     ]
 }
+```
+
+### Get linearization definitions <a name="getlindefs"></a>
+
+This endpoit will return the linearization definitions as they are used in iCAT-X. This is a static file that will rarely change (e.g., only if a new linearization is added, or an existing one is deleted). It provides metadata about each linearization: the id, description, display label, sorting code, linearization mode (core or telescopic).
+
+` <baseUrl>/icat/linearization-definitions`
+
+Example for returned JSON:
+
+```json
+{
+        "Id": "MMS",
+        "whoficEntityIri": "http://id.who.int/icd/release/11/mms",
+        "oldId": null,
+        "Description": "ICD-11 for Mortality and Morbidity Statistics",
+        "DisplayLabel": "MMS",
+        "rootId": "http://id.who.int/icd/entity/455013390",
+        "sortingCode": "01",
+        "linearizationMode": "LinMode.Basic",
+        "coreLinId": null
+    },
+    {
+        "Id": "PCL",
+        "whoficEntityIri": "http://id.who.int/icd/release/11/pcl",
+        "oldId": null,
+        "Description": "ICD-11 Primary Care Low Resource Setting Linearization",
+        "DisplayLabel": "Primary Care - Low Res. Set.",
+        "rootId": "http://id.who.int/icd/entity/455013390",
+        "sortingCode": "03",
+        "linearizationMode": "LinMode.TelescopicFromAnotherLinearization",
+        "coreLinId": "MMS"
+    },
+...
 ```
