@@ -46,7 +46,7 @@ PUT request to the following endpoint with the JSON payload of the updated conte
 
 The request body will contain the json structure of the entity exactly how you receive it on the getEntity request, but with the new values to be set.
 
-`
+```json
         {
             "entityIRI": "http://id.who.int/icd/entity/1205958647",
             "languageTerms": {
@@ -427,7 +427,7 @@ The request body will contain the json structure of the entity exactly how you r
                 "http://id.who.int/icd/entity/487269828"
             ]
         }
-`
+```
 
 When updating languageTerms for an entity if termId is not specified then we consider that a new termId needs to be created. The termId needs to be set as null or completely omitted from the json for a new termId to be created. 
 If the termId is specified then the update will change the label of that termId with the new value.
@@ -499,7 +499,8 @@ Response should look like:
 GET request to the following endpoint should  return the change history of the entity
 ` <baseUrl>/icat/history/entityHistorySummary?projectId=<projectId>&entityIRI=<URL escaped entity URI> `
 
-` {
+```json
+{
     "changes": [
         {
             "changeSummary": "Update parents through API",
@@ -513,7 +514,8 @@ GET request to the following endpoint should  return the change history of the e
             "dateTime": "2024-11-22T13:31:51.596"
         }
     ]
-}`
+}
+```
 
 
 #### Not Found 404
@@ -523,7 +525,8 @@ If the entity with the URI does not exist response code 404 should be returned
 GET request to the following endpoint should  return the comments attached to the  entity
 ` <baseUrl>/icat/projects/{projectId}/entityComments/entityIRI={URL escaped entity URI} `
 
-`    {
+```json
+    {
         "commentThreads": [
             {
                 "projectId": "03a3f282-8671-45bf-901e-362e0e1ac3e2",
@@ -558,7 +561,8 @@ GET request to the following endpoint should  return the comments attached to th
                 ]
             }
         ]
-    }    `
+    }
+```
 
 #### Not Found 404
 If the entity with the URI does not exist response code 404 should be returned
@@ -572,7 +576,7 @@ This enpoint should return a list of ordered children of an entity.
 This should support only GET so that the updates are only done by using the main entity endpoint.
 
 Returned JSON could be a simple array or URIs
-```
+```json
 {
     children:["...", "..."]
 }
