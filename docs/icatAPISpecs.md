@@ -132,110 +132,7 @@ The request body will contain the JSON structure of the entity exactly how you r
                         "linearizationId": "http://id.who.int/icd/release/11/rar",
                         "codingNote": null
                     },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/research",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/ocu",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/mnh",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "UNKNOWN",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/oph",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/mus",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/ped",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "UNKNOWN",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/env",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "FALSE",
-                        "linearizationPathParent": "http://id.who.int/icd/entity/257068234",
-                        "linearizationId": "http://id.who.int/icd/release/11/mms",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/der",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "UNKNOWN",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/icd-o",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/pch",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/ner",
-                        "codingNote": null
-                    },
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "FALSE",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/pcl",
-                        "codingNote": null
-                    }
+                    ...
                 ]
             },
             "postcoordination": {
@@ -248,34 +145,7 @@ The request body will contain the JSON structure of the entity exactly how you r
                             "http://id.who.int/icd/schema/hasSeverity",
                             "http://id.who.int/icd/schema/hasAlternativeSeverity1",
                             "http://id.who.int/icd/schema/hasAlternativeSeverity2",
-                            "http://id.who.int/icd/schema/course",
-                            "http://id.who.int/icd/schema/temporalPatternAndOnset",
-                            "http://id.who.int/icd/schema/timeInLife",
-                            "http://id.who.int/icd/schema/causality",
-                            "http://id.who.int/icd/schema/infectiousAgent",
-                            "http://id.who.int/icd/schema/chemicalAgent",
-                            "http://id.who.int/icd/schema/medication",
-                            "http://id.who.int/icd/schema/hasCausingCondition",
-                            "http://id.who.int/icd/schema/histopathology",
-                            "http://id.who.int/icd/schema/laterality",
-                            "http://id.who.int/icd/schema/relational",
-                            "http://id.who.int/icd/schema/distribution",
-                            "http://id.who.int/icd/schema/regional",
-                            "http://id.who.int/icd/schema/specificAnatomy",
-                            "http://id.who.int/icd/schema/serotype",
-                            "http://id.who.int/icd/schema/genomicAndChomosomalAnomaly",
-                            "http://id.who.int/icd/schema/fractureSubtype",
-                            "http://id.who.int/icd/schema/fractureOpenOrClosed",
-                            "http://id.who.int/icd/schema/jointInvolvementInFracture",
-                            "http://id.who.int/icd/schema/typeOfInjury",
-                            "http://id.who.int/icd/schema/extentOfBurnByBodySurface",
-                            "http://id.who.int/icd/schema/extentOfFullThicknessBurnByBodySurface",
-                            "http://id.who.int/icd/schema/outcomeOfFullThicknessBurn",
-                            "http://id.who.int/icd/schema/durationOfComa",
-                            "http://id.who.int/icd/schema/levelOfConsciousness",
-                            "http://id.who.int/icd/schema/diagnosisConfirmedBy",
-                            "http://id.who.int/icd/schema/hasManifestation",
-                            "http://id.who.int/icd/schema/associatedWith"
+                            "http://id.who.int/icd/schema/course"
                         ],
                         "overwrittenAllowedAxes": [],
                         "overwrittenRequiredAxes": [],
@@ -286,37 +156,7 @@ The request body will contain the JSON structure of the entity exactly how you r
                         "requiredAxes": [],
                         "allowedAxes": [],
                         "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity1",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity2",
-                            "http://id.who.int/icd/schema/course",
-                            "http://id.who.int/icd/schema/temporalPatternAndOnset",
-                            "http://id.who.int/icd/schema/timeInLife",
-                            "http://id.who.int/icd/schema/causality",
-                            "http://id.who.int/icd/schema/infectiousAgent",
-                            "http://id.who.int/icd/schema/chemicalAgent",
-                            "http://id.who.int/icd/schema/medication",
-                            "http://id.who.int/icd/schema/hasCausingCondition",
-                            "http://id.who.int/icd/schema/histopathology",
-                            "http://id.who.int/icd/schema/laterality",
-                            "http://id.who.int/icd/schema/relational",
-                            "http://id.who.int/icd/schema/distribution",
-                            "http://id.who.int/icd/schema/regional",
-                            "http://id.who.int/icd/schema/specificAnatomy",
-                            "http://id.who.int/icd/schema/serotype",
-                            "http://id.who.int/icd/schema/genomicAndChomosomalAnomaly",
-                            "http://id.who.int/icd/schema/fractureSubtype",
-                            "http://id.who.int/icd/schema/fractureOpenOrClosed",
-                            "http://id.who.int/icd/schema/jointInvolvementInFracture",
-                            "http://id.who.int/icd/schema/typeOfInjury",
-                            "http://id.who.int/icd/schema/extentOfBurnByBodySurface",
-                            "http://id.who.int/icd/schema/extentOfFullThicknessBurnByBodySurface",
-                            "http://id.who.int/icd/schema/outcomeOfFullThicknessBurn",
-                            "http://id.who.int/icd/schema/durationOfComa",
-                            "http://id.who.int/icd/schema/levelOfConsciousness",
-                            "http://id.who.int/icd/schema/diagnosisConfirmedBy",
-                            "http://id.who.int/icd/schema/hasManifestation",
-                            "http://id.who.int/icd/schema/associatedWith"
+                            "http://id.who.int/icd/schema/hasSeverity"
                         ],
                         "overwrittenAllowedAxes": [],
                         "overwrittenRequiredAxes": [],
@@ -328,36 +168,7 @@ The request body will contain the JSON structure of the entity exactly how you r
                         "allowedAxes": [],
                         "notAllowedAxes": [
                             "http://id.who.int/icd/schema/hasSeverity",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity1",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity2",
-                            "http://id.who.int/icd/schema/course",
-                            "http://id.who.int/icd/schema/temporalPatternAndOnset",
-                            "http://id.who.int/icd/schema/timeInLife",
-                            "http://id.who.int/icd/schema/causality",
-                            "http://id.who.int/icd/schema/infectiousAgent",
-                            "http://id.who.int/icd/schema/chemicalAgent",
-                            "http://id.who.int/icd/schema/medication",
-                            "http://id.who.int/icd/schema/hasCausingCondition",
-                            "http://id.who.int/icd/schema/histopathology",
-                            "http://id.who.int/icd/schema/laterality",
-                            "http://id.who.int/icd/schema/relational",
-                            "http://id.who.int/icd/schema/distribution",
-                            "http://id.who.int/icd/schema/regional",
-                            "http://id.who.int/icd/schema/specificAnatomy",
-                            "http://id.who.int/icd/schema/serotype",
-                            "http://id.who.int/icd/schema/genomicAndChomosomalAnomaly",
-                            "http://id.who.int/icd/schema/fractureSubtype",
-                            "http://id.who.int/icd/schema/fractureOpenOrClosed",
-                            "http://id.who.int/icd/schema/jointInvolvementInFracture",
-                            "http://id.who.int/icd/schema/typeOfInjury",
-                            "http://id.who.int/icd/schema/extentOfBurnByBodySurface",
-                            "http://id.who.int/icd/schema/extentOfFullThicknessBurnByBodySurface",
-                            "http://id.who.int/icd/schema/outcomeOfFullThicknessBurn",
-                            "http://id.who.int/icd/schema/durationOfComa",
-                            "http://id.who.int/icd/schema/levelOfConsciousness",
-                            "http://id.who.int/icd/schema/diagnosisConfirmedBy",
-                            "http://id.who.int/icd/schema/hasManifestation",
-                            "http://id.who.int/icd/schema/associatedWith"
+                            "http://id.who.int/icd/schema/hasAlternativeSeverity1"
                         ],
                         "overwrittenAllowedAxes": [],
                         "overwrittenRequiredAxes": [],
@@ -368,37 +179,7 @@ The request body will contain the JSON structure of the entity exactly how you r
                         "requiredAxes": [],
                         "allowedAxes": [],
                         "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity1",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity2",
-                            "http://id.who.int/icd/schema/course",
-                            "http://id.who.int/icd/schema/temporalPatternAndOnset",
-                            "http://id.who.int/icd/schema/timeInLife",
-                            "http://id.who.int/icd/schema/causality",
-                            "http://id.who.int/icd/schema/infectiousAgent",
-                            "http://id.who.int/icd/schema/chemicalAgent",
-                            "http://id.who.int/icd/schema/medication",
-                            "http://id.who.int/icd/schema/hasCausingCondition",
-                            "http://id.who.int/icd/schema/histopathology",
-                            "http://id.who.int/icd/schema/laterality",
-                            "http://id.who.int/icd/schema/relational",
-                            "http://id.who.int/icd/schema/distribution",
-                            "http://id.who.int/icd/schema/regional",
-                            "http://id.who.int/icd/schema/specificAnatomy",
-                            "http://id.who.int/icd/schema/serotype",
-                            "http://id.who.int/icd/schema/genomicAndChomosomalAnomaly",
-                            "http://id.who.int/icd/schema/fractureSubtype",
-                            "http://id.who.int/icd/schema/fractureOpenOrClosed",
-                            "http://id.who.int/icd/schema/jointInvolvementInFracture",
-                            "http://id.who.int/icd/schema/typeOfInjury",
-                            "http://id.who.int/icd/schema/extentOfBurnByBodySurface",
-                            "http://id.who.int/icd/schema/extentOfFullThicknessBurnByBodySurface",
-                            "http://id.who.int/icd/schema/outcomeOfFullThicknessBurn",
-                            "http://id.who.int/icd/schema/durationOfComa",
-                            "http://id.who.int/icd/schema/levelOfConsciousness",
-                            "http://id.who.int/icd/schema/diagnosisConfirmedBy",
-                            "http://id.who.int/icd/schema/hasManifestation",
-                            "http://id.who.int/icd/schema/associatedWith"
+                            "http://id.who.int/icd/schema/hasSeverity"
                         ],
                         "overwrittenAllowedAxes": [],
                         "overwrittenRequiredAxes": [],
@@ -457,8 +238,8 @@ The request body will contain the JSON structure of the entity exactly how you r
         }
 ```
 
-When updating languageTerms for an entity if termId is not specified then we consider that a new termId needs to be created. The termId needs to be set as null or completely omitted from the JSON for a new termId to be created. 
-If the termId is specified then the update will change the label of that termId with the new value.
+When updating the language terms for an entity, if the `termId` is not specified, then we consider that a new `termId` needs to be created. The `termId` needs to be set as `null` or completely omitted from the JSON for a new `termId` to be created. 
+If the `termId` is specified, then the update will change the label of that `termId` with the new value.
 
 ### Avoiding update conflicts
 Before updating the entity, the system should check `If-Match` header of the request. The update should be performed only if the `If-Match` header matches the `ETag` of the entity. If it does not match, the API should return HTTP 412 Precondition failed response
@@ -560,11 +341,13 @@ If the entity with the URI does not exist response code 404 should be returned
 
 
 ## Entities that have been updated since a certain time <a name="updatedentities"></a>
+
 GET request to the following endpoint
 
 ` <baseUrl>/icat/history/changedEntities?projectId={projectId}&changedAfter={ISOdatetimeInUTC} `
 
 This should return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
+
 * `updatedEntities`: list of URIs of entities that have changed after the provided time;
 * `createdEntities`: list of URIs of entities that have been created after the provided time;
 * `deletedEntities`: list of URIs of entities that have been deleted after the provided time. Normally we don't expect anything to be deleted as the deletions are performed by moves, but still there may be cases when we delete entities
@@ -588,9 +371,9 @@ Response should look like:
 }
 ```
 
-
 ## Change History for a single entity <a name="changehistory"></a>
 GET request to the following endpoint should  return the change history of the entity
+
 ` <baseUrl>/icat/history/entityHistorySummary?projectId={projectId}&entityIRI={URL escaped entity URI} `
 
 ```JSON
