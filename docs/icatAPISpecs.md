@@ -22,7 +22,7 @@ This endpoint will return a list of available projects with their metadata (id, 
 
 ` <baseUrl>/icat/projects/getProjects`
 
-This should support only GET.
+This call only supports GET.
 
 Example for returned JSON:
 
@@ -45,34 +45,37 @@ Example for returned JSON:
 
 
 ## Reading an entity <a name="readingentity"></a>
-GET request to the following endpoint should return **all the information on the entity both ontological and non-ontological** as a JSON object.
+GET request to the following endpoint will return **all the information on the entity both ontological and non-ontological** as a JSON object.
 
 ` <baseUrl>/icat/projects/{projectId}?entityIri={URL escaped entity URI} `
 
-The history of changes and comments should not be included in this information
+The history of changes and comments will not be included in this information. For that, use the `changeHistory` call.
 
 ### Returned object 
 The returned object structure is defined in [this document](https://github.com/who-icatx/icatx-project/blob/main/docs/jsonForAPISpec.md).
 
-All information such as textual properties, linearization definitions, postcoordination, logical definitions, etc. for the entity should be available in this object
+All information such as textual properties, linearization definitions, postcoordination, logical definitions, etc. for the entity will be available in this object.
 
 ### Last-Modified HTTP response header
-Last-Modified response header should be included in the response (it should contain the last time the entity is updated) in the format defined in the HTTP specification
+Last-Modified response header will be included in the response (it will contain the last time the entity is updated) in the format defined in the HTTP specification.
 
 
 ### ETag HTTP response header
-ETag response header should be included in the response (it should contain a Hash of the JSON response or for performance reasons it could contain the Last Modification date & time ).
+ETag response header will be included in the response (it will contain a Hash of the JSON response or for performance reasons it could contain the Last Modification date & time).
 
 ### Not Found 404
-If the entity does not exist in iCat http response code 404 should be returned
+If the entity does not exist in iCat http response code 404 will be returned.
 
 
 ## Updating an entity <a name="updatingentity"></a>
-PUT request to the following endpoint with the JSON payload of the updated content (same format as returned in the GET request)
+This call is used to update (i.e. write) the content of an entity in the WHOFIC Foundation.
+Use the PUT request to the following endpoint with the JSON payload with the updated content (same format as returned in the GET request).
 
 `<baseUrl>/icat/projects/{projectId}/entities`
 
-The request body will contain the JSON structure of the entity exactly how you receive it on the getEntity request, but with the new values to be set.
+The request body will contain the JSON structure of the entity, exactly how you receive it on the `getEntity` request, but with the new values to be set.
+
+For example, if the definition of an entity needs to be updated, then the `label` from the `definition` structure should contain the new value for the definition. The `termId` should remain the same. First step is to do a `getEntity` request, then modify the `definition.label` and then send it as the JSON payload in the `update` request. The response of this call will return the updated JSON structure with the new definition value, with the same structure of the `getEntity` request. An abridged example of the JSON that is sent in the `update` request for the definition is shown below:
 
 ```JSON
         {
@@ -83,169 +86,21 @@ The request body will contain the JSON structure of the entity exactly how you r
                     "termId": "http://who.int/icd#10305_735007d5_2555_4eb5_a762_282e008a1468"
                 },
                 "definition": {
-                    "label": "This is a short description for this disease",
+                    "label": "This is the new definition that we changed via the API",
                     "termId": "http://www.example.org/RwdAFkGF7imWiOfjWpBm98"
-                },
-                "longDefinition": {
-                    "label": "Some aditional info",
-                    "termId": "http://www.example.org/RB6hEJbIPRZmf452hQk0742"
-                },
-                "fullySpecifiedName": {
-                    "label": "This is a test for json fetching",
-                    "termId": "http://www.example.org/RBeDVm7VIGfiSExMRRtJqKG"
-                },
-                "baseIndexTerms": [
-                    {
-                        "label": "classical cholera",
-                        "indexType": "Synonym",
-                        "isInclusion": true,
-                        "termId": "http://who.int/icd#IndexType.Synonym"
-                    }
-                ],
-                "subclassBaseInclusions": [
-                    "http://id.who.int/icd/entity/1959883044"
-                ],
-                "baseExclusionTerms": [
-                    {
-                        "label": "This isalternative label for exclusion",
-                        "foundationReference": "http://id.who.int/icd/entity/1264126483",
-                        "termId": ""
-                    }
-                ],
-                "isObsolete": false
-            },
-            "entityLinearizations": {
-                "suppressOtherSpecifiedResiduals": null,
-                "suppressUnspecifiedResiduals": null,
-                "unspecifiedResidualTitle": {
-                    "label": null
-                },
-                "otherSpecifiedResidualTitle": {
-                    "label": null
-                },
-                "linearizations": [
-                    {
-                        "isAuxiliaryAxisChild": "UNKNOWN",
-                        "isGrouping": "UNKNOWN",
-                        "isIncludedInLinearization": "UNKNOWN",
-                        "linearizationPathParent": "",
-                        "linearizationId": "http://id.who.int/icd/release/11/rar",
-                        "codingNote": null
-                    },
-                    ...
-                ]
-            },
-            "postcoordination": {
-                "postcoordinationSpecifications": [
-                    {
-                        "linearizationId": "ICHI",
-                        "requiredAxes": [],
-                        "allowedAxes": [],
-                        "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity1",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity2",
-                            "http://id.who.int/icd/schema/course"
-                        ],
-                        "overwrittenAllowedAxes": [],
-                        "overwrittenRequiredAxes": [],
-                        "overwrittenNotAllowedAxes": []
-                    },
-                    {
-                        "linearizationId": "MMS",
-                        "requiredAxes": [],
-                        "allowedAxes": [],
-                        "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity"
-                        ],
-                        "overwrittenAllowedAxes": [],
-                        "overwrittenRequiredAxes": [],
-                        "overwrittenNotAllowedAxes": []
-                    },
-                    {
-                        "linearizationId": "ICF",
-                        "requiredAxes": [],
-                        "allowedAxes": [],
-                        "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity",
-                            "http://id.who.int/icd/schema/hasAlternativeSeverity1"
-                        ],
-                        "overwrittenAllowedAxes": [],
-                        "overwrittenRequiredAxes": [],
-                        "overwrittenNotAllowedAxes": []
-                    },
-                    {
-                        "linearizationId": "ICD-O",
-                        "requiredAxes": [],
-                        "allowedAxes": [],
-                        "notAllowedAxes": [
-                            "http://id.who.int/icd/schema/hasSeverity"
-                        ],
-                        "overwrittenAllowedAxes": [],
-                        "overwrittenRequiredAxes": [],
-                        "overwrittenNotAllowedAxes": []
-                    }
-                ],
-                "scaleCustomizations": []
-            },
-            "logicalConditions": {
-                "jsonRepresentation": {
-                    "logicalDefinitions": [
-                        {
-                            "logicalDefinitionSuperclass": "http://id.who.int/icd/entity/257068234",
-                            "relationships": [
-                                {
-                                    "axis": "http://id.who.int/icd/schema/hasSeverity",
-                                    "filler": "http://id.who.int/icd/entity/815889539"
-                                }
-                            ]
-                        }
-                    ],
-                    "necessaryConditions": [
-                        {
-                            "axis": "http://id.who.int/icd/schema/distribution",
-                            "filler": "http://id.who.int/icd/entity/169306432"
-                        },
-                        {
-                            "axis": "http://id.who.int/icd/schema/histopathology",
-                            "filler": "http://id.who.int/icd/entity/411368752"
-                        },
-                        {
-                            "axis": "http://id.who.int/icd/schema/infectiousAgent",
-                            "filler": "http://id.who.int/icd/entity/194483911"
-                        },
-                        {
-                            "axis": "http://id.who.int/icd/schema/infectiousAgent",
-                            "filler": "http://id.who.int/icd/entity/194483911"
-                        }
-                    ]
-                },
-                "functionalRepresentation": {
-                    "owlSyntax": "OWLFunctionalSyntax",
-                    "axioms": [
-                        "EquivalentClasses(<http://id.who.int/icd/entity/1205958647> ObjectIntersectionOf(<http://id.who.int/icd/entity/257068234> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/hasSeverity> <http://id.who.int/icd/entity/815889539>) ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>)))",
-                        "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/distribution> <http://id.who.int/icd/entity/169306432>))",
-                        "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>))",
-                        "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/histopathology> <http://id.who.int/icd/entity/411368752>))",
-                        "SubClassOf(<http://id.who.int/icd/entity/1205958647> ObjectSomeValuesFrom(<http://id.who.int/icd/schema/infectiousAgent> <http://id.who.int/icd/entity/194483911>))"
-                    ]
                 }
-            },
-            "parents": [
-                "http://id.who.int/icd/entity/257068234",
-                "http://id.who.int/icd/entity/487269828"
-            ]
-        }
-```
+            ...
+    }
+ ```
 
 When updating the language terms for an entity, if the `termId` is not specified, then we consider that a new `termId` needs to be created. The `termId` needs to be set as `null` or completely omitted from the JSON for a new `termId` to be created. 
 If the `termId` is specified, then the update will change the label of that `termId` with the new value.
 
 ### Avoiding update conflicts
-Before updating the entity, the system should check `If-Match` header of the request. The update should be performed only if the `If-Match` header matches the `ETag` of the entity. If it does not match, the API should return HTTP 412 Precondition failed response
+Before updating the entity, the system will check `If-Match` header of the request. The update will be performed only if the `If-Match` header matches the `ETag` of the entity. If it does not match, the API will return HTTP 412 Precondition failed response.
 
 ### Not Found 404
-If the entity with the URI does not exist response code 404 should be returned
+If the entity with the URI does not exist response code 404 will be returned.
 
 ### Bad Request 400
 If the content of the entity does not meet the requirements. The server will return 400 Bad Request response
@@ -261,7 +116,7 @@ POST request to the following endpoint with the JSON payload of the new entity. 
 
 `<baseUrl>/icat/projects/{projectId}/createEntity`
 
-The system should return the newly created object similar to the response for the GET request
+The system will return the newly created object similar to the response for the `getEntity` request.
 
 ### Bad Request 400
 If the content of the entity does not meet the requirements. The server will return 400 Bad Request response
@@ -274,16 +129,16 @@ This can be because :
 
 
 ## Deleting an entity <a name="deletingentity"></a>
-The API does not need to support deletion as it could be performed as a move operation to the retired folder as it is done in the UI
+The API does not need to support deletion as it could be performed as a move operation to the retired folder as it is done in the UI.
 
 
 ## Get children for an entity <a name="getchildren"></a>
 
-This enpoint should return a list of ordered children of an entity.
+This enpoint will return a list of ordered children of an entity.
 
 ` <baseUrl>/icat/projects/{projectId}/getChildren?entityIRI={URL escaped entity URI} `
 
-This should support only GET so that the updates are only done by using the main entity endpoint.
+This call will support only GET. Any updates to the entity, including the parents, should be done via the `update` call.
 
 Returned JSON could be a simple array or URIs
 ```JSON
@@ -294,7 +149,8 @@ Returned JSON could be a simple array or URIs
 
 
 ## Comments for an entity <a name="comments"></a>
-GET request to the following endpoint should  return the comments attached to the  entity
+The GET request to the following endpoint will return the comments attached to the entity:
+
 ` <baseUrl>/icat/projects/{projectId}/entityComments/entityIRI={URL escaped entity URI} `
 
 ```JSON
@@ -337,23 +193,23 @@ GET request to the following endpoint should  return the comments attached to th
 ```
 
 ### Not Found 404
-If the entity with the URI does not exist response code 404 should be returned
+If the entity with the URI does not exist response code 404 will be returned.
 
 
 ## Entities that have been updated since a certain time <a name="updatedentities"></a>
 
-GET request to the following endpoint
+The GET request to the following endpoint
 
 ` <baseUrl>/icat/history/changedEntities?projectId={projectId}&changedAfter={ISOdatetimeInUTC} `
 
-This should return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
+This call will return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
 
 * `updatedEntities`: list of URIs of entities that have changed after the provided time;
 * `createdEntities`: list of URIs of entities that have been created after the provided time;
 * `deletedEntities`: list of URIs of entities that have been deleted after the provided time. Normally we don't expect anything to be deleted as the deletions are performed by moves, but still there may be cases when we delete entities
 
 
-Response should look like:
+An example response:
 
 ```JSON
 {
@@ -372,7 +228,8 @@ Response should look like:
 ```
 
 ## Change History for a single entity <a name="changehistory"></a>
-GET request to the following endpoint should  return the change history of the entity
+
+The GET request to the following endpoint will return the change history of the entity:
 
 ` <baseUrl>/icat/history/entityHistorySummary?projectId={projectId}&entityIRI={URL escaped entity URI} `
 
@@ -395,12 +252,12 @@ GET request to the following endpoint should  return the change history of the e
 ```
 
 ### Not Found 404
-If the entity with the URI does not exist response code 404 should be returned
+If the entity with the URI does not exist response code 404 will be returned.
 
 
 ## Get linearization definitions <a name="getlindefs"></a>
 
-This endpoit will return the linearization definitions as they are used in iCAT-X. This is a static file that will rarely change (e.g., only if a new linearization is added, or an existing one is deleted). It provides metadata about each linearization: the id, description, display label, sorting code, linearization mode (core or telescopic).
+This endpoit will return the linearization definitions as they are used in iCAT-X. This is a static file that will rarely change (e.g., only if a new linearization is added, or an existing one is deleted). The response provides metadata about each linearization: the id, description, display label, sorting code, linearization mode (core or telescopic).
 
 ` <baseUrl>/icat/linearization-definitions`
 
