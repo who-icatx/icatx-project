@@ -497,7 +497,7 @@ Response should look like:
 
 ## Change History for a single entity <a name="changehistory"></a>
 GET request to the following endpoint should  return the change history of the entity
-` <baseUrl>/icat/history/entityHistorySummary?projectId=<projectId>&entityIRI=<URL escaped entity URI> `
+` <baseUrl>/icat/history/entityHistorySummary?projectId={projectId}&entityIRI={URL escaped entity URI} `
 
 ```JSON
 {
