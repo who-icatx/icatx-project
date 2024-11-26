@@ -4,16 +4,44 @@ iCat API will be a REST API with Create, Read, and Update functionality over the
 
 ## API Endpoints
 
+[Get projects](#getprojects) <br /> 
 [Reading an entity](#readingentity) <br />
 [Updating an entity](#updatingentity) <br />
 [Adding a new entity](#addingentity) <br />
 [Deleting an entity](#deletingentity) <br />
+[Get children for an entity](#getchildren) <br />
+[Comments for an entity](#comments) <br />
 [Entities that have been updated since a certain time](#updatedentities) <br />
 [Change History for a single entity](#changehistory) <br />
-[Comments for an entity](#comments) <br />
-[Get children for an entity](#getchildren) <br />
-[Get projects](#getprojects) <br /> 
 [Get linearization definitions](#getlindefs) <br /><br />
+
+
+## Get projects <a name="getprojects"></a>
+
+This endpoint will return a list of available projects with their metadata (id, title, description) for the requestor. The list may be constrained by access policies, i.e., a user may have read access only to certain projects.
+
+` <baseUrl>/icat/projects/getProjects`
+
+This should support only GET.
+
+Example for returned JSON:
+
+```JSON
+{
+    "projects": [
+        {
+            "id": "8cc2df91-d42f-441e-b586-0d502af60193",
+            "title": "WHOFIC Foundation v3.1",
+            "description": "This is the WHOFIC Foundation as of May 30, 2024 and it is used for testing."
+        },
+        {
+            "id": "61f24481-8df3-4591-8a9c-a49702a33a21",
+            "title": "ICD Parasitic + ICF Mental + ICHI Target Mental v3",
+            "description": "This is the parasitic ICD + mental ICF + mental target ICHI + label = annotation property."
+        }
+    ]
+}
+```
 
 
 ## Reading an entity <a name="readingentity"></a>
@@ -463,63 +491,26 @@ This can be because :
 - Minimum information is not provided (title and at least one parent)
 - The content is not acceptable due to other business rules 
 
+
 ## Deleting an entity <a name="deletingentity"></a>
 The API does not need to support deletion as it could be performed as a move operation to the retired folder as it is done in the UI
 
-## Entities that have been updated since a certain time <a name="updatedentities"></a>
-GET request to the following endpoint
 
-` <baseUrl>/icat/history/changedEntities?projectId={projectId}&changedAfter={ISOdatetimeInUTC} `
+## Get children for an entity <a name="getchildren"></a>
 
-This should return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
-* `updatedEntities`: list of URIs of entities that have changed after the provided time;
-* `createdEntities`: list of URIs of entities that have been created after the provided time;
-* `deletedEntities`: list of URIs of entities that have been deleted after the provided time. Normally we don't expect anything to be deleted as the deletions are performed by moves, but still there may be cases when we delete entities
+This enpoint should return a list of ordered children of an entity.
 
+` <baseUrl>/icat/projects/{projectId}/getChildren?entityIRI={URL escaped entity URI} `
 
-Response should look like:
+This should support only GET so that the updates are only done by using the main entity endpoint.
 
+Returned JSON could be a simple array or URIs
 ```JSON
 {
-    "createdEntities": [
-        "http://id.who.int/icd/entity/000000002",
-        "http://id.who.int/icd/entity/000000011"
-    ],
-    "updatedEntities": [
-        "http://id.who.int/icd/entity/000000027",
-        "http://id.who.int/icd/entity/000000028"
-    ],
-    "deletedEntities": [
-        "http://id.who.int/icd/entity/000000013"
-    ]
+    "children": ["...", "..."]
 }
 ```
 
-## Change History for a single entity <a name="changehistory"></a>
-GET request to the following endpoint should  return the change history of the entity
-` <baseUrl>/icat/history/entityHistorySummary?projectId={projectId}&entityIRI={URL escaped entity URI} `
-
-```JSON
-{
-    "changes": [
-        {
-            "changeSummary": "Update parents through API",
-            "userId": "service-account-icatx_application",
-            "dateTime": "2024-11-22T13:51:40.828"
-        },
-        ...
-        {
-            "changeSummary": "Created class api created entity 8 as a subclass of Birth injury due to scalpel wound",
-            "userId": "service-account-icatx_application",
-            "dateTime": "2024-11-22T13:31:51.596"
-        }
-    ]
-}
-```
-
-
-### Not Found 404
-If the entity with the URI does not exist response code 404 should be returned
 
 ## Comments for an entity <a name="comments"></a>
 GET request to the following endpoint should  return the comments attached to the  entity
@@ -567,47 +558,62 @@ GET request to the following endpoint should  return the comments attached to th
 ### Not Found 404
 If the entity with the URI does not exist response code 404 should be returned
 
-## Get children for an entity <a name="getchildren"></a>
 
-This enpoint should return a list of ordered children of an entity.
+## Entities that have been updated since a certain time <a name="updatedentities"></a>
+GET request to the following endpoint
 
-` <baseUrl>/icat/projects/{projectId}/getChildren?entityIRI={URL escaped entity URI} `
+` <baseUrl>/icat/history/changedEntities?projectId={projectId}&changedAfter={ISOdatetimeInUTC} `
 
-This should support only GET so that the updates are only done by using the main entity endpoint.
+This should return URIs of all entities that have changed, added or deleted after a certain time (not including the changes that occurred at that exact time). 
+* `updatedEntities`: list of URIs of entities that have changed after the provided time;
+* `createdEntities`: list of URIs of entities that have been created after the provided time;
+* `deletedEntities`: list of URIs of entities that have been deleted after the provided time. Normally we don't expect anything to be deleted as the deletions are performed by moves, but still there may be cases when we delete entities
 
-Returned JSON could be a simple array or URIs
+
+Response should look like:
+
 ```JSON
 {
-    "children": ["...", "..."]
+    "createdEntities": [
+        "http://id.who.int/icd/entity/000000002",
+        "http://id.who.int/icd/entity/000000011"
+    ],
+    "updatedEntities": [
+        "http://id.who.int/icd/entity/000000027",
+        "http://id.who.int/icd/entity/000000028"
+    ],
+    "deletedEntities": [
+        "http://id.who.int/icd/entity/000000013"
+    ]
 }
 ```
 
-## Get projects <a name="getprojects"></a>
 
-This endpoint will return a list of available projects with their metadata (id, title, description) for the requestor. The list may be constrained by access policies, i.e., a user may have read access only to certain projects.
-
-` <baseUrl>/icat/projects/getProjects`
-
-This should support only GET.
-
-Example for returned JSON:
+## Change History for a single entity <a name="changehistory"></a>
+GET request to the following endpoint should  return the change history of the entity
+` <baseUrl>/icat/history/entityHistorySummary?projectId={projectId}&entityIRI={URL escaped entity URI} `
 
 ```JSON
 {
-    "projects": [
+    "changes": [
         {
-            "id": "8cc2df91-d42f-441e-b586-0d502af60193",
-            "title": "WHOFIC Foundation v3.1",
-            "description": "This is the WHOFIC Foundation as of May 30, 2024 and it is used for testing."
+            "changeSummary": "Update parents through API",
+            "userId": "service-account-icatx_application",
+            "dateTime": "2024-11-22T13:51:40.828"
         },
+        ...
         {
-            "id": "61f24481-8df3-4591-8a9c-a49702a33a21",
-            "title": "ICD Parasitic + ICF Mental + ICHI Target Mental v3",
-            "description": "This is the parasitic ICD + mental ICF + mental target ICHI + label = annotation property."
+            "changeSummary": "Created class api created entity 8 as a subclass of Birth injury due to scalpel wound",
+            "userId": "service-account-icatx_application",
+            "dateTime": "2024-11-22T13:31:51.596"
         }
     ]
 }
 ```
+
+### Not Found 404
+If the entity with the URI does not exist response code 404 should be returned
+
 
 ## Get linearization definitions <a name="getlindefs"></a>
 
