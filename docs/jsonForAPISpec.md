@@ -13,6 +13,8 @@ Returned object  will look like
 ```json
 {
     "entityURI": "http://id.who.int/icd/entity/1205958647",
+
+    "isObsolete": "false",
     
     "parents": [
         "http://id.who.int/icd/entity/1776745893",
@@ -75,10 +77,7 @@ Returned object  will look like
                 "foundationReference": "http://id.who.int/icd/entity/257068234",
                 "termId": "http://who.int/icd#Term_722"
             }
-        ],
-        
-        "isObsolete": "false"
-     
+        ]
     },
 
     "entityLinearizations": 
