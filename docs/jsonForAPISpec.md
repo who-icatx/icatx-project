@@ -54,7 +54,14 @@ Returned object  will look like
                 "indexType": "Narrower",
                 "isInclusion": "false",
                 "termId": "http://who.int/icd#Term_721"
-            }
+            },
+            {
+                "label": "Syonym 2",
+                "indexType": "Synonym",
+                "isInclusion": "true",
+                "termId": "http://who.int/icd#Term_725",
+                "isDeprecated": "true"
+            },
         ],
         
         "subclassBaseInclusions": [
