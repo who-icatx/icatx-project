@@ -61,7 +61,7 @@ Returned object  will look like
                 "isInclusion": "true",
                 "termId": "http://who.int/icd#Term_725",
                 "isDeprecated": "true"
-            },
+            }
         ],
         
         "subclassBaseInclusions": [
@@ -86,6 +86,8 @@ Returned object  will look like
             }
         ]
     },
+
+    "diagnosticCriteria": "This is a diagnostic criteria in **markdown format**.",
 
     "entityLinearizations": 
         {
