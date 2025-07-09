@@ -89,6 +89,10 @@ Returned object  will look like
 
     "diagnosticCriteria": "This is a diagnostic criteria in **markdown format**.",
 
+    "relatedICFEntity": [
+        "http://id.who.int/icd/entity/498058186",
+        "http://id.who.int/icd/entity/465823194"],
+
     "entityLinearizations": 
         {
             "suppressUnspecifiedResiduals": "true",
