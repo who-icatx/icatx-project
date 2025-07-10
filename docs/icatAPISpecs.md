@@ -79,7 +79,7 @@ For example, if the definition of an entity needs to be updated, then the `label
 
 ```JSON
         {
-            "entityIRI": "http://id.who.int/icd/entity/1205958647",
+            "entityURI": "http://id.who.int/icd/entity/1205958647",
             "languageTerms": {
                 "title": {
                     "label": "Cholera due to Vibrio cholerae O1, biovar cholerae",
@@ -143,7 +143,16 @@ This call will support only GET. Any updates to the entity, including the parent
 Returned JSON could be a simple array or URIs
 ```JSON
 {
-    "children": ["...", "..."]
+    "projectId": "ce5786a2-5222-40d9-b043-2848f526600e",
+    "entityUri": "http://id.who.int/icd/entity/921595235",
+    "children": [
+        "http://id.who.int/icd/entity/900389391",
+        "http://id.who.int/icd/entity/951357413",
+        "http://id.who.int/icd/entity/1356928923",
+        "http://id.who.int/icd/entity/693244560",
+        "http://id.who.int/icd/entity/854137188",
+        "http://id.who.int/icd/entity/1276763930"
+    ]
 }
 ```
 
